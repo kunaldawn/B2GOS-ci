@@ -15,7 +15,7 @@ on:
 #    - cron: 0 8 * *
 
 env:
-  SSH_ACTIONS: false
+  SSH_ACTIONS: true
 
 jobs:
 
