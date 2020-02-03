@@ -5,7 +5,7 @@ cd $ANDROID_ROOT
 # replace something
 sed -i 's/external\/selinux/external\/selinux external\/libcurl/g' build/core/main.mk
 
-rm -r $ANDROID_ROOT/device/oppo/common/keyhandler
+#rm -r $ANDROID_ROOT/device/oppo/common/keyhandler
 
 source build/envsetup.sh
 export USE_CCACHE=1
