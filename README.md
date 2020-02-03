@@ -1,7 +1,7 @@
 # UBports GH Actions
 This repository enables images to be built from GitHub Actions.
 
-![](https://github.com/ubports-santoni/ubports-ci/workflows/Build%20System%20Image/badge.svg)
+![Build System Image](https://github.com/ubports-onyx/ubports-ci/workflows/Build%20System%20Image/badge.svg?branch=master)
 
 **To download files from CI, please refer to the figures below:**
 
