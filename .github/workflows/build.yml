@@ -71,7 +71,9 @@ jobs:
       run: |
         source halium.env
         repo init
+        cp /home/runner/work/ubports-ci/ubports-ci/.repo/repo/repo /usr/bin/repo
         $ANDROID_ROOT/halium/devices/setup onyx
+        
         
     - name: SSH connection to Actions
       uses: P3TERX/debugger-action@master
