@@ -1,8 +1,6 @@
 #=================================================
 # Description: Build ubports using GitHub Actions
 # Lisence: MIT
-# Author: 0312birdzhang
-# Credit: https://github.com/P3TERX/Actions-OpenWrt
 #=================================================
 
 name: Build System Image
@@ -65,9 +63,9 @@ jobs:
     - name: Clone device spec source
       run: |
         source halium.env
-        git clone https://github.com/ubports-onyx/ubports-ci.git  $ANDROID_ROOT/tmp --depth=1
+        git clone https://github.com/ubports-onyx/ubports-ci.git  $ANDROID_ROOT/tmp1 --depth=1
         rm $ANDROID_ROOT/halium/devices/manifests/oneplus_onyx.xml
-        cp $ANDROID_ROOT/tmp/oneplus_onyx.xml $ANDROID_ROOT/halium/devices/manifests
+        cp $ANDROID_ROOT/tmp1/oneplus_onyx.xml $ANDROID_ROOT/halium/devices/manifests
         $ANDROID_ROOT/halium/devices/setup onyx
         
     - name: SSH connection to Actions
@@ -91,3 +89,5 @@ jobs:
       with:
         name: System image
         path: /home/runner/work/halium/out/target/product/onyx/system.img 
+
+
