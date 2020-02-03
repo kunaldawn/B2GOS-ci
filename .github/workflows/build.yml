@@ -40,7 +40,7 @@ jobs:
         bison build-essential curl flex g++-multilib \
         gcc-multilib gnupg gperf imagemagick lib32ncurses5-dev \
         lib32readline-dev lib32z1-dev libesd0-dev liblz4-tool \
-        libncurses5-dev libsdl1.2-dev libssl-dev libwxgtk3.0-dev \
+        libncurses5-dev libsdl1.2-dev libssl-dev repo libwxgtk3.0-dev \
         libxml2 libxml2-utils lzop pngcrush rsync schedtool \
         squashfs-tools xsltproc yasm zip zlib1g-dev git
         sudo docker rmi `docker images -q`
@@ -61,9 +61,6 @@ jobs:
         repo init -u https://github.com/Halium/android -b halium-7.1 --depth=1
         repo sync -j8 -c --no-clone-bundle --no-tags
         
-    - name: SSH connection to Actions
-      uses: P3TERX/debugger-action@master
-      if: env.SSH_ACTIONS == 'true'
 
     - name: Clone device spec source
       run: |
@@ -72,6 +69,11 @@ jobs:
         rm $ANDROID_ROOT/halium/devices/manifests/oneplus_onyx.xml
         cp $ANDROID_ROOT/tmp/oneplus_onyx.xml $ANDROID_ROOT/halium/devices/manifests
         $ANDROID_ROOT/halium/devices/setup onyx
+        
+    - name: SSH connection to Actions
+      uses: P3TERX/debugger-action@master
+      if: env.SSH_ACTIONS == 'true'
+
     - name: Build HAL
       run: |
         chmod +x build-hal.sh
