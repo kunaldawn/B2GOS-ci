@@ -12,5 +12,5 @@ make -j$(nproc) halium-boot
 make -j$(nproc) systemimage 
 
 echo "md5sum halium-boot.img and system.img"
-md5sum $ANDROID_ROOT/out/target/product/santoni/halium-boot.img
-md5sum $ANDROID_ROOT/out/target/product/santoni/system.img
+md5sum $ANDROID_ROOT/out/target/product/onyx/halium-boot.img
+md5sum $ANDROID_ROOT/out/target/product/onyx/system.img
