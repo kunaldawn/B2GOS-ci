@@ -7,6 +7,8 @@ sed -i 's/external\/selinux/external\/selinux external\/libcurl/g' build/core/ma
 
 #rm -r $ANDROID_ROOT/device/oppo/common/keyhandler
 
+chmod +x $ANDROID_ROOT/kernel/oneplus/onyx/scripts/gcc-wrapper.py
+
 source build/envsetup.sh
 export USE_CCACHE=1
 breakfast $DEVICE
