@@ -15,7 +15,7 @@ on:
 #    - cron: 0 8 * *
 
 env:
-  SSH_ACTIONS: true
+  SSH_ACTIONS: false
 
 jobs:
 
@@ -66,6 +66,10 @@ jobs:
         git clone https://github.com/ubports-onyx/ubports-ci.git  $ANDROID_ROOT/tmp1 --depth=1
         rm $ANDROID_ROOT/halium/devices/manifests/oneplus_onyx.xml
         cp $ANDROID_ROOT/tmp1/oneplus_onyx.xml $ANDROID_ROOT/halium/devices/manifests
+
+    - name: Clone device spec source 2
+      run: |
+        source halium.env
         $ANDROID_ROOT/halium/devices/setup onyx
         
     - name: SSH connection to Actions
