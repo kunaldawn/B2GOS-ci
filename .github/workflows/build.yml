@@ -16,13 +16,16 @@ on:
 #  schedule:
 #    - cron: 0 8 * *
 
+env:
+  SSH_ACTIONS: true
+
 jobs:
 
   build:
     runs-on: ubuntu-16.04
 
     env:
-      DEVICE: santoni
+      DEVICE: onyx
       ANDROID_ROOT: /home/runner/work/halium/
 
     steps:
@@ -61,10 +64,10 @@ jobs:
     - name: Clone device spec source
       run: |
         source halium.env
-        git clone https://github.com/ittat/device_oneplus_onyx.git  -b ut-7.1  $ANDROID_ROOT/device/oneplus/onyx --depth=1
-        git clone https://github.com/LineageOS/android_device_oppo_common.git  -b cm-14.1  $ANDROID_ROOT/device/oppo/common --depth=1
-        git clone https://github.com/ittat/kernel_oneplus_onyx.git  -b ut-7.1 $ANDROID_ROOT/kernel/oneplus/onyx --depth=1
-        git clone https://github.com/TheMuppets/proprietary_vendor_oneplus.git  -b cm-14.1  $ANDROID_ROOT/vendor/oneplus --depth=1
+        git clone https://github.com/ubports-onyx/ubports-ci/blob/master/oneplus_onyx.xml  $ANDROID_ROOT/tmp --depth=1
+        rm $ANDROID_ROOT/halium/devices/manifests/oneplus_onyx.xml
+        cp $ANDROID_ROOT/tmp/oneplus_onyx.xml $ANDROID_ROOT/halium/devices/manifests
+        $ANDROID_ROOT/halium/devices/setup onyx
     - name: Build HAL
       run: |
         chmod +x build-hal.sh
