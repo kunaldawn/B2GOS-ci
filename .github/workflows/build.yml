@@ -68,7 +68,7 @@ jobs:
     - name: Clone device spec source
       run: |
         source halium.env
-        git clone https://github.com/ubports-onyx/ubports-ci/blob/master/oneplus_onyx.xml  $ANDROID_ROOT/tmp --depth=1
+        git clone https://github.com/ubports-onyx/ubports-ci.git  $ANDROID_ROOT/tmp --depth=1
         rm $ANDROID_ROOT/halium/devices/manifests/oneplus_onyx.xml
         cp $ANDROID_ROOT/tmp/oneplus_onyx.xml $ANDROID_ROOT/halium/devices/manifests
         $ANDROID_ROOT/halium/devices/setup onyx
