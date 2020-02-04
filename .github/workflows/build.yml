@@ -51,12 +51,13 @@ jobs:
         chmod +x ~/bin/repo
         git config --global user.name "ittat"
         git config --global user.email "ittat@github.com"
+
     - name: Downloading source code
       run: |
         source b2g.env
         mkdir -p $ANDROID_ROOT
         cd $ANDROID_ROOT
-        repo init -u https://github.com/b2g2onyxL/B2G -b b2g/cm-12.1 --depth=1
+        git clone https://github.com/b2g2onyxL/B2G -b b2g/cm-12.1
         cd ./B2G
         ./config onyx
 
