@@ -2,7 +2,7 @@
 source b2g.env
 chmod +x $ANDROID_ROOT/B2G/kernel/oneplus/onyx/scripts/gcc-wrapper.py
 cd $ANDROID_ROOT/B2G
-
+export DISABLE_SOURCES_XML=true
 export USE_CCACHE=1
 export B2G_FOTA_FULLIMG_PARTS="/boot:boot.img /system:system.img"
 export B2G_SYSTEM_APPS=1
