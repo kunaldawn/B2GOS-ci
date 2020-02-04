@@ -34,7 +34,7 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y \
-        openjdk-8-jdk android-tools-adb bc autoconf-2.13 \
+        openjdk-8-jdk android-tools-adb bc autoconf \
         bison build-essential curl flex g++-multilib m4 libxml2-utils \
         gcc-multilib gnupg gperf imagemagick lib32ncurses5-dev \
         lib32readline-dev lib32z1-dev libesd0-dev liblz4-tool flex \
