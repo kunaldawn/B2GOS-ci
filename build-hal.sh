@@ -1,5 +1,5 @@
 #!/bin/bash
-source halium.env
+source b2g.env
 cd $ANDROID_ROOT
 
 
