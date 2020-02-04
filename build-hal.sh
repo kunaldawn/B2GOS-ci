@@ -5,7 +5,7 @@ cd $ANDROID_ROOT
 # replace something
 sed -i 's/external\/selinux/external\/selinux external\/libcurl/g' build/core/main.mk
 
-#rm -r $ANDROID_ROOT/device/oppo/common/keyhandler
+export LC_ALL=C
 
 chmod +x $ANDROID_ROOT/kernel/oneplus/onyx/scripts/gcc-wrapper.py
 
