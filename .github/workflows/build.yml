@@ -58,7 +58,7 @@ jobs:
         mkdir -p $ANDROID_ROOT
         cd $ANDROID_ROOT
         git clone https://github.com/b2g2onyxL/B2G -b b2g/cm-12.1
-        $ANDROID_ROOT/B2G/config onyx
+        $ANDROID_ROOT/B2G/config.sh onyx
 
     - name: SSH connection to Actions
       uses: P3TERX/debugger-action@master
