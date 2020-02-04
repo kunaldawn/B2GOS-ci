@@ -15,7 +15,7 @@ on:
 #    - cron: 0 8 * *
 
 env:
-  SSH_ACTIONS: false
+  SSH_ACTIONS: true
 
 jobs:
 
@@ -24,7 +24,7 @@ jobs:
 
     env:
       DEVICE: onyx
-      ANDROID_ROOT: /home/runner/work/halium/
+      ANDROID_ROOT: /home/runner/work/b2g/
 
     steps:
     - name: Checkout
@@ -34,12 +34,12 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y \
-        openjdk-8-jdk android-tools-adb bc \
+        openjdk-8-jdk android-tools-adb bc autoconf-2.13 \
         bison build-essential curl flex g++-multilib m4 libxml2-utils \
         gcc-multilib gnupg gperf imagemagick lib32ncurses5-dev \
-        lib32readline-dev lib32z1-dev libesd0-dev liblz4-tool \
+        lib32readline-dev lib32z1-dev libesd0-dev liblz4-tool flex \
         libncurses5-dev libsdl1.2-dev libssl-dev repo libwxgtk3.0-dev \
-        libxml2 libxml2-utils lzop pngcrush rsync schedtool \
+        libxml2 libxml2-utils lzop pngcrush rsync schedtool ccache bison \
         squashfs-tools xsltproc yasm zip zlib1g-dev git
         sudo docker rmi `docker images -q`
         sudo rm -rf \
@@ -53,20 +53,12 @@ jobs:
         git config --global user.email "ittat@github.com"
     - name: Downloading source code
       run: |
-        source halium.env
+        source b2g.env
         mkdir -p $ANDROID_ROOT
         cd $ANDROID_ROOT
-        repo init -u https://github.com/Halium/android -b halium-7.1 --depth=1
-        repo sync -j8 -c --no-clone-bundle --no-tags
-        
-
-    - name: Clone device spec source
-      run: |
-        source halium.env
-        git clone https://github.com/ittat/device_oneplus_onyx.git  -b ut-7.1  $ANDROID_ROOT/device/oneplus/onyx --depth=1
-        git clone https://github.com/ubports-onyx/android_device_oppo_common.git  -b ut-7.1   $ANDROID_ROOT/device/oppo/common --depth=1
-        git clone https://github.com/ittat/kernel_oneplus_onyx.git  -b ut-7.1 $ANDROID_ROOT/kernel/oneplus/onyx --depth=1
-        git clone https://github.com/ubports-onyx/vendor_oneplus.git  -b ut-7.1  $ANDROID_ROOT/vendor/oneplus --depth=1
+        repo init -u https://github.com/b2g2onyxL/B2G -b b2g/cm-12.1 --depth=1
+        cd ./B2G
+        ./config onyx
 
     - name: SSH connection to Actions
       uses: P3TERX/debugger-action@master
@@ -74,6 +66,7 @@ jobs:
 
     - name: Build HAL
       run: |
+        source b2g.env
         chmod +x build-hal.sh
         bash -x build-hal.sh
       shell: bash
@@ -82,12 +75,16 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         name: halium-boot image
-        path: /home/runner/work/halium/out/target/product/onyx/halium-boot.img
+        path: /home/runner/work/b2g/B2G/out/target/product/onyx/boot.img
 
     - name : Upload system image
       uses: actions/upload-artifact@master
       with:
         name: System image
-        path: /home/runner/work/halium/out/target/product/onyx/system.img 
+        path: /home/runner/work/b2g/B2G/out/target/product/onyx/system.img 
 
-
+    - name : Upload update.zip
+      uses: actions/upload-artifact@master
+      with:
+        name: update.zip
+        path: /home/runner/work/b2g/B2G/out/target/product/onyx/fota/fullimg/update.zip
