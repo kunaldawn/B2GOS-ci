@@ -17,7 +17,7 @@ on:
     types: [started]
 
 env:
-  SSH_ACTIONS: false
+  SSH_ACTIONS: true
 
 jobs:
 
@@ -62,6 +62,11 @@ jobs:
         git clone https://github.com/b2g2onyxL/B2G -b b2g/cm-12.1
         cd $ANDROID_ROOT/B2G
         ./config.sh onyx
+
+    - name: Mod source code
+      run: |
+        source b2g.env
+        cp /usr/bin/ld.gold   $ANDROID_ROOT/B2G/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.11-4.6/x86_64-linux/bin/ld 
 
     - name: SSH connection to Actions
       uses: P3TERX/debugger-action@master
