@@ -15,7 +15,7 @@ on:
 #    - cron: 0 8 * *
 
 env:
-  SSH_ACTIONS: true
+  SSH_ACTIONS: false
 
 jobs:
 
@@ -63,18 +63,11 @@ jobs:
     - name: Clone device spec source
       run: |
         source halium.env
-        git clone https://github.com/ubports-onyx/ubports-ci.git  $ANDROID_ROOT/tmp1 --depth=1
-        rm $ANDROID_ROOT/halium/devices/manifests/oneplus_onyx.xml
-        cp $ANDROID_ROOT/tmp1/oneplus_onyx.xml $ANDROID_ROOT/halium/devices/manifests
+        git clone https://github.com/ittat/device_oneplus_onyx.git  -b ut-7.1  $ANDROID_ROOT/device/oneplus/onyx --depth=1
+        git clone https://github.com/ubports-onyx/android_device_oppo_common.git  -b ut-7.1   $ANDROID_ROOT/device/oppo/common --depth=1
+        git clone https://github.com/ittat/kernel_oneplus_onyx.git  -b ut-7.1 $ANDROID_ROOT/kernel/oneplus/onyx --depth=1
+        git clone https://github.com/ubports-onyx/vendor_oneplus.git  -b ut-7.1  $ANDROID_ROOT/vendor/oneplus --depth=1
 
-    - name: Clone device spec source 2
-      run: |
-        source halium.env
-        cp /home/runner/work/ubports-ci/ubports-ci/.repo/repo/repo /usr/bin/repo
-        repo init
-        $ANDROID_ROOT/halium/devices/setup onyx
-        
-        
     - name: SSH connection to Actions
       uses: P3TERX/debugger-action@master
       if: env.SSH_ACTIONS == 'true'
