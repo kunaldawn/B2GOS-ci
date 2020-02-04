@@ -9,10 +9,12 @@ on:
   push:
     branches:
       - master
-  release:
-    types: [published]
+#  release:
+#    types: [published]
 #  schedule:
 #    - cron: 0 8 * *
+  watch:
+    types: [started]
 
 env:
   SSH_ACTIONS: true
