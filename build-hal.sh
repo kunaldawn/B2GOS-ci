@@ -1,5 +1,6 @@
 #!/bin/bash
 source b2g.env
+chmod +x $ANDROID_ROOT/B2G/kernel/oneplus/onyx/scripts/gcc-wrapper.py
 cd $ANDROID_ROOT/B2G
 
 export USE_CCACHE=1
