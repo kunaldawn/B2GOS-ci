@@ -64,7 +64,7 @@ jobs:
       uses: P3TERX/debugger-action@master
       if: env.SSH_ACTIONS == 'true'
 
-    - name: Build HAL
+    - name: Build B2GOS
       run: |
         source b2g.env
         chmod +x build-hal.sh
