@@ -83,6 +83,7 @@ jobs:
         chmod +x $ANDROID_ROOT/B2G//gecko/mach
         export SHELL=/bin/bash
         source b2g.env
+        sudo eval "$(docker-machine env default)"
         cd $ANDROID_ROOT/B2G/gecko
         ./mach bootstrap
         
