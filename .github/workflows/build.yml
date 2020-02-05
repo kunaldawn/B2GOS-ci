@@ -17,7 +17,7 @@ on:
     types: [started]
 
 env:
-  SSH_ACTIONS: true
+  SSH_ACTIONS: false
 
 jobs:
 
@@ -35,8 +35,17 @@ jobs:
     - name: Initialization environment
       run: |
         sudo apt-get update
+        sudo apt-get install make=3.81-8.2ubuntu3
+        sudo apt-mark hold make 
+        sudo dpkg --add-architecture i386
+        sudo dpkg --add-architecture amd64
+        sudo apt-get install --no-install-recommends autoconf2.13 \
+        bison bzip2 ccache curl flex gawk gcc g++ g++-multilib git lib32ncurses5-dev \
+        lib32z1-dev libgconf2-dev zlib1g:amd64 zlib1g-dev:amd64 zlib1g:i386 zlib1g-dev:i386 \
+        libgl1-mesa-dev libx11-dev make zip lzop libxml2-utils \
+        openjdk-8-jdk nodejs unzip python
         sudo apt-get install -y \
-        openjdk-8-jdk android-tools-adb bc autoconf \
+        openjdk-8-jdk android-tools-adb bc  \
         bison build-essential curl flex g++-multilib m4 libxml2-utils \
         gcc-multilib gnupg gperf imagemagick lib32ncurses5-dev \
         lib32readline-dev lib32z1-dev libesd0-dev liblz4-tool flex \
