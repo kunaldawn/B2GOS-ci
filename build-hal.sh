@@ -1,6 +1,9 @@
 #!/bin/bash
 source b2g.env
 chmod +x $ANDROID_ROOT/B2G/kernel/oneplus/onyx/scripts/gcc-wrapper.py
+chmod +x $ANDROID_ROOT/B2G//gecko/build/autoconf/config.guess
+chmod +x $ANDROID_ROOT/B2G//gecko/mach
+
 cd $ANDROID_ROOT/B2G
 export DISABLE_SOURCES_XML=true
 export USE_CCACHE=1
