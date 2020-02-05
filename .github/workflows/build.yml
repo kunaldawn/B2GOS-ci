@@ -103,7 +103,7 @@ jobs:
         export MOZILLA_OFFICIAL=1
         export GAIA_DISTRIBUTION_DIR=distros/spark
         export GAIA_DEV_PIXELS_PER_PX=2.25
-        ./build.sh -j$(nproc)
+        ./build.sh -j$(nproc) gecko
         
         
     - name: SSH connection to Actions
