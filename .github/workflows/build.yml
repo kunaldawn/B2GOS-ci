@@ -76,6 +76,10 @@ jobs:
         source b2g.env
         cp /usr/bin/ld.gold   $ANDROID_ROOT/B2G/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.11-4.6/x86_64-linux/bin/ld 
 
+    - name: SSH connection to Actions
+      uses: P3TERX/debugger-action@master
+      if: env.SSH_ACTIONS == 'true'
+      
     - name: Do gecko bootstrap
       run: |
         chmod +x $ANDROID_ROOT/B2G/kernel/oneplus/onyx/scripts/gcc-wrapper.py
@@ -83,9 +87,9 @@ jobs:
         chmod +x $ANDROID_ROOT/B2G//gecko/mach
         export SHELL=/bin/bash
         source b2g.env
-        sudo eval "$(docker-machine env default)"
-        cd $ANDROID_ROOT/B2G/gecko
-        ./mach bootstrap
+        #sudo eval "$(docker-machine env default)"
+        #cd $ANDROID_ROOT/B2G/gecko
+        #./mach bootstrap
         
     - name: Build B2GOS
       run: |
@@ -112,9 +116,6 @@ jobs:
         ./build.sh -j$(nproc)
         
         
-    - name: SSH connection to Actions
-      uses: P3TERX/debugger-action@master
-      if: env.SSH_ACTIONS == 'true'
 
     - name : Upload boot image
       uses: actions/upload-artifact@master
