@@ -76,14 +76,21 @@ jobs:
         source b2g.env
         cp /usr/bin/ld.gold   $ANDROID_ROOT/B2G/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.11-4.6/x86_64-linux/bin/ld 
 
-
-    - name: Build B2GOS
+    - name: Do gecko bootstrap
       run: |
-        source b2g.env
         chmod +x $ANDROID_ROOT/B2G/kernel/oneplus/onyx/scripts/gcc-wrapper.py
         chmod +x $ANDROID_ROOT/B2G//gecko/build/autoconf/config.guess
         chmod +x $ANDROID_ROOT/B2G//gecko/mach
+        export SHELL=/bin/bash
+        source b2g.env
+        cd $ANDROID_ROOT/B2G/gecko
+        ./mach bootstrap
+        
+    - name: Build B2GOS
+      run: |
+        source b2g.env
         cd $ANDROID_ROOT/B2G
+        export SHELL=/bin/bash
         export DISABLE_SOURCES_XML=true
         export USE_CCACHE=1
         export B2G_FOTA_FULLIMG_PARTS="/boot:boot.img /system:system.img"
