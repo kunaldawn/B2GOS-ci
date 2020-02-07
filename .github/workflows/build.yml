@@ -17,7 +17,7 @@ on:
     types: [started]
 
 env:
-  SSH_ACTIONS: true
+  SSH_ACTIONS: false
 
 jobs:
 
@@ -83,8 +83,8 @@ jobs:
     - name: Do gecko bootstrap
       run: |
         chmod +x $ANDROID_ROOT/B2G/kernel/oneplus/onyx/scripts/gcc-wrapper.py
-        chmod +x $ANDROID_ROOT/B2G//gecko/build/autoconf/config.guess
-        chmod +x $ANDROID_ROOT/B2G//gecko/mach
+        chmod +x $ANDROID_ROOT/B2G/gecko/build/autoconf/config.guess
+        chmod +x $ANDROID_ROOT/B2G/gecko/mach
         export SHELL=/bin/bash
         source b2g.env
         #sudo eval "$(docker-machine env default)"
@@ -120,7 +120,7 @@ jobs:
     - name : Upload boot image
       uses: actions/upload-artifact@master
       with:
-        name: halium-boot image
+        name: boot image
         path: /home/runner/work/b2g/B2G/out/target/product/onyx/boot.img
 
     - name : Upload system image
