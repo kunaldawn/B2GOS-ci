@@ -1,8 +1,40 @@
-# B2GOS GH Actions
+# B2G GH Actions
 This repository enables images to be built from GitHub Actions.
-# Device- OneplusX(onyx)
-![Build System Image](https://github.com/b2g2onyxL/B2GOS-ci/workflows/Build%20System%20Image/badge.svg)
 
-**To download files from CI, please refer to the figures below:**
+## B2G/FirefoxOS Building Status:  
+ B2GOS v2.5 :
+![Build System Image](https://github.com/b2g2onyxL/B2GOS-ci/workflows/Build%20System%20Image/badge.svg?branch=master)  
+[Download](https://github.com/b2g2onyxL/B2GOS-ci/actions)
 
-![](https://github.com/ubports-santoni/ubports-ci/raw/master/images/Screenshot_20200114_024916.png)
+
+
+### What working or Missing:  
+|              |   B2GOS v2.5          |   
+|:------------:|:------------:|
+| Ril |  OK   |
+| Sound | OK    | 
+| Touch | OK    | 
+| Wifi | OK    |
+| notification lights | OK    |
+| Vibration | OK    |
+| Orientation sensor | OK    |
+| Bluetooth | NO    | 
+| Flash light |  OK    | 
+| MTP  | OK  |
+| Light Sensor | OK    |
+| Battery | OK    |
+| GPS | OK    | 
+| camera |  OK   |
+| Hotspot | Unknow    |
+
+
+### Install:  
+   * Prerequisites: Unlocked bootloader , PC
+   * TWRP from Official Twrp site and flash it into your OneplusX
+   * Download B2GOS ROM from [here](https://github.com/b2g2onyxL/B2GOS-ci/actions)
+   * reboot your phone to TWRP and  wipe /data partitions and /system partitions
+   * Flash update.zip
+   * Enjoy  
+More detail about B2GOS 
+Join our supergroup on Telegram: [![@ServonkTelegram](https://img.shields.io/badge/telegram-@ServonkTelegram-yellow.svg)](http://huit.re/ServonkTelegram)
+
