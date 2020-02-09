@@ -35,6 +35,5 @@ This repository enables images to be built from GitHub Actions.
    * reboot your phone to TWRP and  wipe /data partitions and /system partitions
    * Flash update.zip
    * Enjoy  
-More detail about B2GOS 
-Join our supergroup on Telegram: [![@ServonkTelegram](https://img.shields.io/badge/telegram-@ServonkTelegram-yellow.svg)](http://huit.re/ServonkTelegram)
+More detail about B2GOS can join our group on Telegram: [![@ServonkTelegram](https://img.shields.io/badge/telegram-@ServonkTelegram-yellow.svg)](http://huit.re/ServonkTelegram)
 
