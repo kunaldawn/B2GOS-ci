@@ -8,7 +8,7 @@ name: Build System Image
 on: 
   push:
     branches:
-      - v2.5
+      - v2.6
 #  release:
 #    types: [published]
 #  schedule:
@@ -69,7 +69,7 @@ jobs:
         cd $ANDROID_ROOT
         git clone https://github.com/b2g2onyxL/B2G -b b2g/cm-12.1
         cd $ANDROID_ROOT/B2G
-        ./config.sh onyx
+        ./config.sh onyx_v2-6
 
     - name: Mod source code
       run: |
