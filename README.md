@@ -18,7 +18,7 @@ This repository enables images to be built from GitHub Actions.
 | notification lights | OK    |
 | Vibration | OK    |
 | Orientation sensor | OK    |
-| Bluetooth | NO    | 
+| Bluetooth | <h3>NO</h3>    | 
 | Flash light |  OK    | 
 | MTP  | OK  |
 | Light Sensor | OK    |
@@ -27,6 +27,9 @@ This repository enables images to be built from GitHub Actions.
 | camera |  OK   |
 | Hotspot | Unknow    |
 
+### Pay attention! :  
+  1. B2GOS ROM REQUIRES OXYGENOS 2.1.3 FIRMWARE!
+  2. B2GOS is dead
 
 ### Install:  
    * Prerequisites: Unlocked bootloader , PC
