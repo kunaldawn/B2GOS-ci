@@ -13,8 +13,8 @@ on:
 #    types: [published]
 #  schedule:
 #    - cron: 0 8  1 * ?
-#  watch:
-#    types: [started]
+  watch:
+    types: [started]
 
 env:
   SSH_ACTIONS: false
