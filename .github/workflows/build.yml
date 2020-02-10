@@ -74,10 +74,10 @@ jobs:
     - name: Mod source code
       run: |
         source b2g.env
-        sudo rm -r $ANDROID_ROOT/B2G/gecko
-        sudo rm -r $ANDROID_ROOT/B2G/gaia
-        git clone https://github.com/mozilla-b2g/gecko-partner.git  -b v2.5  $ANDROID_ROOT/B2G/gecko --depth=1
-        git clone https://github.com/mozilla-b2g/gaia.git  -b v2.5  $ANDROID_ROOT/B2G/gecko --depth=1 
+        #sudo rm -r $ANDROID_ROOT/B2G/gecko
+        #sudo rm -r $ANDROID_ROOT/B2G/gaia
+        #git clone https://github.com/mozilla-b2g/gecko-partner.git  -b v2.5  $ANDROID_ROOT/B2G/gecko --depth=1
+        #git clone https://github.com/mozilla-b2g/gaia.git  -b v2.5  $ANDROID_ROOT/B2G/gaia --depth=1 
         cp /usr/bin/ld.gold   $ANDROID_ROOT/B2G/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.11-4.6/x86_64-linux/bin/ld 
         chmod +x $ANDROID_ROOT/B2G/kernel/oneplus/onyx/scripts/gcc-wrapper.py
         chmod +x $ANDROID_ROOT/B2G/gecko/build/autoconf/config.guess
