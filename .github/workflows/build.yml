@@ -91,6 +91,7 @@ jobs:
         export SHELL=/bin/bash
         export DISABLE_SOURCES_XML=true
         export USE_CCACHE=1
+        export GAIA_PATH=$ANDROID_ROOT/B2G/gaia
         export B2G_FOTA_FULLIMG_PARTS="/boot:boot.img /system:system.img"
         export B2G_SYSTEM_APPS=1
         export B2G_UPDATE_CHANNEL=default
