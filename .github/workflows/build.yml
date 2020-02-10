@@ -6,15 +6,15 @@
 name: Build System Image
 
 on: 
-  push:
-    branches:
-      - master
+#  push:
+#    branches:
+#      - master
 #  release:
 #    types: [published]
-#  schedule:
-#    - cron: 0 8 * *
-  watch:
-    types: [started]
+  schedule:
+    - cron: 0 8  1 * ?
+#  watch:
+#    types: [started]
 
 env:
   SSH_ACTIONS: false
