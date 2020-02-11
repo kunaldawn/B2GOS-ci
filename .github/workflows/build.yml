@@ -1,6 +1,6 @@
 #=================================================
 # Description: Build ubports using GitHub Actions
-# Lisence: MIT 
+# Lisence: MIT  
 #=================================================
 
 name: Build System Image
