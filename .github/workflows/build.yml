@@ -74,6 +74,8 @@ jobs:
     - name: Mod source code
       run: |
         source b2g.env
+        sudo rm -r $ANDROID_ROOT/B2G/device/oneplus/onyx
+        git clone https://github.com/b2g2onyxL/device_oneplus_onyx -b cl  $ANDROID_ROOT/B2G/device/oneplus/onyx --depth=1
         #sudo rm -r $ANDROID_ROOT/B2G/gecko
         #sudo rm -r $ANDROID_ROOT/B2G/gaia
         #git clone https://github.com/mozilla-b2g/gecko-partner.git  -b v2.5  $ANDROID_ROOT/B2G/gecko --depth=1
