@@ -67,15 +67,15 @@ jobs:
         source b2g.env
         mkdir -p $ANDROID_ROOT
         cd $ANDROID_ROOT
-        git clone https://github.com/b2g2onyxL/B2G -b b2g/cm-12.1
+        git clone https://github.com/b2g2onyxL/B2G -b v2.6
         cd $ANDROID_ROOT/B2G
-        ./config.sh onyx_v2-6
+        ./config.sh onyx-l
 
     - name: Mod source code
       run: |
         source b2g.env
-        sudo rm -r $ANDROID_ROOT/B2G/device/oneplus/onyx
-        git clone https://github.com/b2g2onyxL/device_oneplus_onyx -b cl  $ANDROID_ROOT/B2G/device/oneplus/onyx --depth=1
+        #sudo rm -r $ANDROID_ROOT/B2G/device/oneplus/onyx
+        #git clone https://github.com/b2g2onyxL/device_oneplus_onyx -b cl  $ANDROID_ROOT/B2G/device/oneplus/onyx --depth=1
         #sudo rm -r $ANDROID_ROOT/B2G/gecko
         #sudo rm -r $ANDROID_ROOT/B2G/gaia
         #git clone https://github.com/mozilla-b2g/gecko-partner.git  -b v2.5  $ANDROID_ROOT/B2G/gecko --depth=1
