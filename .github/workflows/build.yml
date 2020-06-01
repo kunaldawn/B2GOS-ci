@@ -32,7 +32,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@master
     
-    - name: Initialization environment
+    - name: Initializing environment
       run: |
         sudo apt-get update
         sudo dpkg --add-architecture i386
@@ -60,6 +60,8 @@ jobs:
         chmod +x ~/bin/repo
         git config --global user.name "ittat"
         git config --global user.email "ittat@github.com"
+        sudo apt autoremove -y
+        sudo apt clean
 
 
     - name: Downloading source code
@@ -71,7 +73,7 @@ jobs:
         cd $ANDROID_ROOT/B2G
         ./config.sh onyx
 
-    - name: Mod source code
+    - name: Modding source code
       run: |
         source b2g.env
         cp /usr/bin/ld.gold   $ANDROID_ROOT/B2G/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.11-4.6/x86_64-linux/bin/ld 
@@ -80,7 +82,7 @@ jobs:
         chmod +x $ANDROID_ROOT/B2G/gecko/mach
         export SHELL=/bin/bash
         
-    - name: Build B2GOS
+    - name: Building B2GOS
       run: |
         source b2g.env
         cd $ANDROID_ROOT/B2G
@@ -104,7 +106,7 @@ jobs:
         export GAIA_DEV_PIXELS_PER_PX=2.25
         ./build.sh -j$(nproc) gecko-update-fota-fullimg
         
-    - name : Upload update.zip
+    - name : Uploading update.zip
       uses: actions/upload-artifact@master
       with:
         name: update.zip
