@@ -11,10 +11,10 @@ on:
 #      - master
 #  release:
 #    types: [published]
-  schedule:
-    - cron: 0 8  1 * ?
-#  watch:
-#    types: [started]
+#   schedule:
+#     - cron: 0 8  1 * ?
+ watch:
+   types: [started]
 
 env:
   SSH_ACTIONS: false
@@ -63,7 +63,11 @@ jobs:
         sudo apt autoremove -y
         sudo apt clean
 
-
+    - name: test
+      run: |
+        ls
+        cp profile_save.tar.gz $ANDROID_ROOT
+        
     - name: Downloading source code
       run: |
         source b2g.env
@@ -104,6 +108,7 @@ jobs:
         export MOZILLA_OFFICIAL=1
         export GAIA_DISTRIBUTION_DIR=distros/spark
         export GAIA_DEV_PIXELS_PER_PX=2.25
+        export PREFERRED_APPS := $ANDROID_ROOT/profile_save.tar.gz
         ./build.sh -j$(nproc) gecko-update-fota-fullimg
         
     - name : Uploading update.zip
