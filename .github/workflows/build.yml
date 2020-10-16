@@ -62,16 +62,12 @@ jobs:
         git config --global user.email "ittat@github.com"
         sudo apt autoremove -y
         sudo apt clean
-
-    - name: test
-      run: |
-        ls
-        cp profile_save.tar.gz $ANDROID_ROOT
         
     - name: Downloading source code
       run: |
         source b2g.env
         mkdir -p $ANDROID_ROOT
+        cp profile_save.tar.gz $ANDROID_ROOT
         cd $ANDROID_ROOT
         git clone https://github.com/b2g2onyxL/B2G -b b2g/cm-12.1
         cd $ANDROID_ROOT/B2G
