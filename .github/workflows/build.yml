@@ -104,7 +104,7 @@ jobs:
         export MOZILLA_OFFICIAL=1
         export GAIA_DISTRIBUTION_DIR=distros/spark
         export GAIA_DEV_PIXELS_PER_PX=2.25
-        export PREFERRED_APPS := $ANDROID_ROOT/profile_save.tar.gz
+        export PREFERRED_APPS=$ANDROID_ROOT/profile_save.tar.gz
         ./build.sh -j$(nproc) gecko-update-fota-fullimg
         
     - name : Uploading update.zip
