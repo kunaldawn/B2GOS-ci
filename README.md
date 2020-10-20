@@ -7,21 +7,24 @@ This repository enables images to be built from GitHub Actions.
 [Download](https://github.com/b2g2onyxL/B2GOS-ci/actions)
 
 
+ B2GOS v3.0 (WIP) :
+ [Build System Image](https://github.com/OnePlus-onyx/build-CI/releases)  
+
 
 ### What's working:  
-|              |   B2GOS v2.5          |   
-|:------------:|:------------:|
+|              |   B2GOS v2.5          |     B2GOS v3.0 (WIP)          | 
+|:------------:|:------------:|:------------:|
 | Ril |  Yes   |
 | Sound | Yes    | 
-| Touch | Yes    | 
-| Wifi | Yes    |
+| Touch | Yes    | Yes    | 
+| Wifi | Yes    | Yes    |
 | notification lights | Yes    |
 | Vibration | Yes    |
 | Orientation sensor | Yes    |
 | Flash light |  Yes    | 
 | MTP  | Yes  |
 | Light Sensor | Yes    |
-| Battery | OK    |
+| Battery | OK    |Yes    |
 | GPS | Yes    | 
 | camera |  Yes    |
 
@@ -43,5 +46,7 @@ This repository enables images to be built from GitHub Actions.
    * Reboot your phone to TWRP and  wipe /data and /system partitions
    * Flash update.zip
    * Enjoy!
-More details about B2GOS in our Telegram group: [![@ServonkTelegram](https://img.shields.io/badge/telegram-@ServonkTelegram-yellow.svg)](http://huit.re/ServonkTelegram)
+
+More details about B2GOS in our Telegram group [![@ServonkTelegram](https://img.shields.io/badge/telegram-@ServonkTelegram-yellow.svg)](http://huit.re/ServonkTelegram)  or talk to us on 
+[![@chat.mozilla.org](https://img.shields.io/badge/Matrix-B2G-yellow.svg)](https://chat.mozilla.org/#/room/#b2g:mozilla.org)
 
