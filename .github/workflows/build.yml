@@ -5,16 +5,7 @@
 
 name: Build System Image
 
-on: 
-#  push:
-#    branches:
-#      - master
-#  release:
-#    types: [published]
-  schedule:
-    - cron: 0 8  1 * ?
-#  watch:
-#    types: [started]
+on: [workflow_dispatch]
 
 env:
   SSH_ACTIONS: false
